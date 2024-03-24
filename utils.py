@@ -211,3 +211,10 @@ def make_confusion_matrix(cf,
     
     if title:
         plt.title(title)
+
+
+def calc_reconstruction_error(X, X_recon):
+    """
+    Calculate the reconstruction error between the original and reconstructed data
+    """
+    return np.mean(np.sum((X - X_recon)**2, axis=1))
