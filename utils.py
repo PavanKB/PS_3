@@ -218,3 +218,18 @@ def calc_reconstruction_error(X, X_recon):
     Calculate the reconstruction error between the original and reconstructed data
     """
     return np.mean(np.sum((X - X_recon)**2, axis=1))
+
+def plot_kmeans_cluter(X, labels, centroid, title):
+    """
+    Plot the kmeans clusters with the centroids
+    X: The data to plot. It should be 2D
+    labels: The cluster labels
+    centroid: The centroids of the clusters
+    title: The title of the plot
+    """
+    fig, ax = plt.subplots()
+    sns.scatterplot(x=X[:,0], y=X[:,1], hue=labels, palette='viridis', ax=ax)
+    sns.scatterplot(x=centroids[:,0], y=centroids[:,1], color='black', s=50, marker='o', ax=ax)
+    ax.set_title(title)
+
+    return fig, ax
