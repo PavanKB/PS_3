@@ -5,6 +5,7 @@ from sklearn.metrics import matthews_corrcoef
 import pandas as pd
 import numpy as np
 import seaborn as sns
+from matplotlib.patches import Ellipse
 
 
 def get_data(name):
@@ -233,3 +234,27 @@ def plot_kmeans_cluter(X, labels, centroid, title):
     ax.set_title(title)
 
     return fig, ax
+
+def draw_ellipse(position, covariance, ax=None, **kwargs):
+    """
+        Draw an ellipse with a given position and covariance
+
+        This code has been sourced from the following link:
+        https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html  on 2024 MAR 25
+
+    """
+    ax = ax or plt.gca()
+    
+    # Convert covariance to principal axes
+    if covariance.shape == (2, 2):
+        U, s, Vt = np.linalg.svd(covariance)
+        angle = np.degrees(np.arctan2(U[1, 0], U[0, 0]))
+        width, height = 2 * np.sqrt(s)
+    else:
+        angle = 0
+        width, height = 2 * np.sqrt(covariance)
+    
+    # Draw the Ellipse
+    for nsig in range(1, 4):
+        ax.add_patch(Ellipse(xy=position, width=nsig * width, height=nsig * height,
+                             angle=angle, **kwargs))
