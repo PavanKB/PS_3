@@ -56,6 +56,9 @@ Apply dimensionality reduction followed by clustering
 * gaus_proj_nn_dry_bean.ipynb
 * tsne_nn_dry_bean.ipynb
 
+## Neural Network with Clustering
+* kmeans_nn_dry_beans.ipynb
+
 # RUN THE MODELS
 1. Open command prompt and navigate to the project folder
 2. Activate the conda env - `activate ml`
