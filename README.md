@@ -58,6 +58,7 @@ Apply dimensionality reduction followed by clustering
 
 ## Neural Network with Clustering
 * kmeans_nn_dry_beans.ipynb
+* exp_max_nn_dry_beans.ipynb
 
 # RUN THE MODELS
 1. Open command prompt and navigate to the project folder
